@@ -1,31 +1,12 @@
-local ScreenGui = Instance.new("ScreenGui")
-local TextLabel = Instance.new("TextLabel")
+task.spawn(function()
+    repeat task.wait() until game:GetService("CoreGui"):FindFirstChild("VapeGui")
+    for _, v in pairs(game:GetService("CoreGui").VapeGui:GetDescendants()) do
+        if v:IsA("TextLabel") and (v.Text == "Vape v4" or v.Text == "Vape") then
+            v.Text = "VortexV4"
+        end
+    end
+end)
 
--- Protect the GUI from being deleted on reset
-ScreenGui.Parent = (game:GetService("CoreGui") or game:GetService("Players").LocalPlayer:WaitForChild("PlayerGui"))
-ScreenGui.Name = "VortexWatermark"
-
-TextLabel.Parent = ScreenGui
-TextLabel.BackgroundColor3 = Color3.fromRGB(15, 15, 15) -- Dark theme
-TextLabel.BackgroundTransparency = 0.3
-TextLabel.Position = UDim2.new(0.5, -85, 0, 15) -- Centered at the top
-TextLabel.Size = UDim2.new(0, 170, 0, 35)
-TextLabel.Font = Enum.Font.GothamBold
-TextLabel.Text = "VORTEX V4 | pvpez"
-TextLabel.TextColor3 = Color3.fromRGB(0, 255, 150) -- Mint/Green accent
-TextLabel.TextSize = 16
-TextLabel.BorderSizePixel = 0
-
--- Rounded corners for a modern look
-local UICorner = Instance.new("UICorner")
-UICorner.CornerRadius = UDim.new(0, 10)
-UICorner.Parent = TextLabel
-
--- Optional: Subtle UI Stroke (Border)
-local UIStroke = Instance.new("UIStroke")
-UIStroke.Color = Color3.fromRGB(255, 255, 255)
-UIStroke.Transparency = 0.8
-UIStroke.Parent = TextLabel
 local isfile = isfile or function(file)
 	local suc, res = pcall(function()
 		return readfile(file)
